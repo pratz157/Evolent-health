@@ -1,0 +1,43 @@
+<form name="myForm" class="list-group-item">
+
+    <div class="form-group">
+
+        <p>
+            <label for="name">First Name: </label>
+            <input id="name" class="form-control" type="text" ng-model="$ctrl.currentContact.firstName" required> </p>
+        <p>
+            <label for="url">Last Name:</label>
+            <input id="url" class="form-control" type="text" ng-model="$ctrl.currentContact.lstName"> </p>
+        <p>
+            <label for="email">Email:</label>
+            <input id="email" name="email" class="form-control" type="email" ng-model="$ctrl.currentContact.email" required> 
+            <span ng-show="myForm.email.$touched && myForm.email.$invalid">Enter valid email-id.</span></p>
+        
+        </p>
+        <p>
+            <label for="phone">Phone Number:</label>
+            <input id="phone" onkeypress="return event.keyCode >= 48 && event.keyCode <= 57" class="form-control" type="text" ng-model="$ctrl.currentContact.phone" required> </p>
+
+        <p>
+            <label for="notes">Status:</label>
+            <select class="form-control" id="sel1" ng-model="$ctrl.currentContact.status" ng-options="x for x in ['Active','Inactive']">
+                    
+            </select>
+        </p>
+    </div>
+
+   
+    <button  class="btn btn-default" ng-click="$ctrl.addContact()">
+        <span class="glyphicon glyphicon-ok"></span>
+        <span ng-if="$ctrl.path === '/add' "> Add</span>
+        <span ng-if="$ctrl.path !== '/add' "> Save Edits</span>
+    </button>
+    
+
+    <a href="/">
+        <button class="btn btn-default">
+            <span class="glyphicon glyphicon-remove"></span>
+            <span> Cancel</span>
+        </button>
+    </a>
+</form>

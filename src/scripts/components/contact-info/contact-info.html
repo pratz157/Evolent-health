@@ -1,0 +1,42 @@
+<div class="list-group-item">
+    <h3 class="text-center">{{$ctrl.currentContact.name}}</h3>
+    <table class="table">
+        <tr>
+            <td>First Name</td>
+            <td>{{$ctrl.currentContact.firstName}}</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>{{$ctrl.currentContact.lstName}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>
+                <a ng-href="{{currentContact.email}}">{{$ctrl.currentContact.email}}</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>{{$ctrl.currentContact.phone}}</td>
+        </tr>
+
+        <tr>
+            <td>Notes</td>
+            <td ng-class="$ctrl.status ">{{$ctrl.currentContact.status}}</td>
+        </tr>
+    </table>
+
+    <a ng-href="/edit/{{$ctrl.contacts.indexOf($ctrl.currentContact)}}">
+        <button class="btn btn-default">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span> - Edit</span>
+        </button>
+    </a>
+
+    <a href="/">
+        <button class="btn btn-default" ng-click="$ctrl.removeContact($ctrl.currentContact)">
+            <span class="glyphicon glyphicon-remove"></span>
+            <span> - Remove</span>
+        </button>
+    </a>
+</div>
